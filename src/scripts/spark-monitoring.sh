@@ -27,7 +27,7 @@ export AZ_RSRC_NAME=
 EOF
 
 STAGE_DIR=/dbfs/databricks/spark-monitoring
-SPARK_MONITORING_VERSION=${SPARK_MONITORING_VERSION:-1.0.0}
+SPARK_MONITORING_VERSION=${SPARK_MONITORING_VERSION:-1.0.1}
 SPARK_VERSION=$(cat /databricks/spark/VERSION 2> /dev/null || echo "")
 SPARK_VERSION=${SPARK_VERSION:-3.4.1}
 SPARK_SCALA_VERSION=$(ls /databricks/spark/assembly/target | cut -d '-' -f2 2> /dev/null || echo "")
@@ -56,7 +56,8 @@ EOF
 
 JAR_FILENAME="spark-monitoring_${SPARK_MONITORING_VERSION}.jar"
 echo "Copying $JAR_FILENAME"
-cp -f "$STAGE_DIR/$JAR_FILENAME" /mnt/driver-daemon/jars
+#TODO
+wget --quiet -O /mnt/driver-daemon/jars/"$JAR_FILENAME" https://repo1.maven.org/maven2/io/github/vijaykiran/spark-monitoring_2.12/1.0.1/"$JAR_FILENAME"
 echo "Copied Spark Monitoring jars successfully"
 
 echo "Copying log4j-layout-template-json-2.17.2.jar"
