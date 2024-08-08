@@ -9,7 +9,7 @@
     <url>https://github.com/vijaykiran/spark-monitoring</url>
     <groupId>io.github.vijaykiran</groupId>
     <artifactId>spark-monitoring</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <packaging>jar</packaging>
 
     <developers>
